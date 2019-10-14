@@ -1,0 +1,23 @@
+{
+  "name": "@umanager/core",
+  "version": "0.0.1",
+  "description": "Core part of application",
+  "scripts": {
+    "dev": "",
+    "prod": ""
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vadymbiliuk/umanager.git"
+  },
+  "author": "Vadym Biliuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vadymbiliuk/umanager/issues"
+  },
+  "homepage": "https://github.com/vadymbiliuk/umanager#readme",
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  }
+}

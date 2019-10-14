@@ -1,0 +1,62 @@
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  parserOptions: {},
+  extends: [
+    'plugin:@typescript-eslint/recommended'
+  ],
+  plugins: [
+    'react',
+    'react-hooks',
+    'pretty-imports',
+    '@typescript-eslint'
+  ],
+  rules: {
+    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/array-type': 0,
+    '@typescript-eslint/interface-name-prefix': 0,
+    '@typescript-eslint/no-object-literal-type-assertion': 0,
+    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-non-null-assertion': 0,
+    '@typescript-eslint/explicit-member-accessibility': 0,
+    '@typescript-eslint/no-empty-interface': 0,
+    '@typescript-eslint/camelcase': 0,
+    '@typescript-eslint/no-parameter-properties': 0,
+    '@typescript-eslint/no-unused-vars': 0,
+    '@typescript-eslint/no-var-requires': 0,
+    'max-len': ['error', {
+      'code': 120
+    }],
+    'quotes': ['error', 'single'],
+    'no-var': 2,
+    'prefer-const': 1,
+    'prefer-spread': 1,
+    'prefer-template': 1,
+    'react/jsx-uses-vars': 2,
+    'no-duplicate-imports': 2,
+    'react/jsx-uses-react': 2,
+    'semi': 2,
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'comma-dangle': ['error', 'always-multiline'],
+    'pretty-imports/sorted': 2,
+    'object-curly-spacing': ['error', 'always'],
+    'keyword-spacing': ['error', { 'before': true, 'after': true }],
+    'space-before-blocks': ['error', 'always'],
+    'space-before-function-paren': ['error', 'never'],
+    'space-infix-ops': ['error', {'int32Hint': false}],
+    'eol-last': ['error', 'always'],
+    'newline-per-chained-call': ['error', { 'ignoreChainWithDepth': 2 }],
+    'no-whitespace-before-property': 0,
+    'padded-blocks': ['error', 'never'],
+    'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
+    'space-in-parens': ['error', 'never'],
+    'array-bracket-spacing': ['error', 'never'],
+    'comma-spacing': ['error', { 'before': false, 'after': true }],
+    'func-call-spacing': ['error', 'never'],
+    'key-spacing': ['error', { 'beforeColon': false }],
+    'no-trailing-spaces': 0,
+    'no-multiple-empty-lines': ['error', { 'max': 1, 'maxBOF': 1}],
+    'arrow-spacing': 'error'
+  }
+};
