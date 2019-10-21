@@ -1,5 +1,17 @@
 {
   "cSpell.words": [
+    "typeorm",
     "umanager"
+  ],
+  "sqltools.connections": [
+    {
+      "database": "umanager",
+      "dialect": "PostgreSQL",
+      "name": "Work",
+      "password": "12345",
+      "port": 5432,
+      "server": "localhost",
+      "username": "postgres"
+    }
   ]
 }

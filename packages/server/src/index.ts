@@ -4,7 +4,7 @@ import cors from '@koa/cors';
 import koaBody from 'koa-body';
 import Router from 'koa-router';
 import logger from 'koa-logger';
-import { Routes } from './routes';
+import { Routes } from './api/routes';
 import { errorHandler } from './services/middlewares/errorHandler';
 import { createConnection, ConnectionOptionsReader } from 'typeorm';
 
