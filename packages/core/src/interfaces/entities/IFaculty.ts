@@ -1,9 +1,9 @@
 import { IStudent } from './IStudent';
-import { IBaseEntity } from './IBaseEntity';
 import { IDiscipline } from './IDiscipline';
+import { IBaseEntity } from './IBaseEntity';
 
 export interface IFaculty extends IBaseEntity {
   name: string;
-  disciplines: IDiscipline[];
-  students: IStudent[];
+  disciplines: Promise<IDiscipline>;
+  students: Promise<IStudent[]>;
 }

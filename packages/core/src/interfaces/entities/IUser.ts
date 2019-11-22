@@ -6,7 +6,5 @@ export interface IUser extends IBaseEntity {
   passwordHash: string;
   firstName: string;
   lastName: string;
-  isBanned: boolean;
-  isEmailConfirmed: boolean;
-  role: IRole;
+  role: Promise<IRole>;
 }

@@ -1,27 +1,22 @@
 import { Student } from './Student';
-import { BaseEntity } from './BaseEntity';
 import { Discipline } from './Discipline';
-import { IFaculty } from '@umanager/core/src/interfaces/entities/IFaculty';
-import { Entity, Column, OneToMany, ManyToMany, JoinTable } from 'typeorm';
+import { BaseEntity } from './BaseEntity';
+import { Column, ManyToMany, OneToMany, Entity } from 'typeorm';
+import { IFaculty } from '@k-disciplines/core/src/interfaces/entities/IFaculty';
 
 @Entity()
 export class Faculty extends BaseEntity implements IFaculty {
-  @Column({ nullable: false })
+  @Column({ name: 'name', type: 'varchar', length: 100, nullable: false })
   public name: string;
 
   @ManyToMany(() => Discipline, (discipline) => discipline.faculties)
-  @JoinTable({
-    name: 'faculty_disciplines',
-    joinColumn: { name: 'faculty_id', referencedColumnName: 'id' },
-    inverseJoinColumn: { name: 'discipline_id', referencedColumnName: 'id' },
-  })
-  public disciplines: Discipline[];
+  public disciplines: Promise<Discipline>
 
   @OneToMany(() => Student, (student) => student.faculty)
-  public students: Student[];
+  public students: Promise<Student[]>;
 
   constructor(
-    name: string,
+    name: string
   ) {
     super();
 

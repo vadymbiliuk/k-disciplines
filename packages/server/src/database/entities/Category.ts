@@ -1,18 +1,18 @@
-import { BaseEntity } from './BaseEntity';
 import { Discipline } from './Discipline';
-import { Entity, Column, OneToMany } from 'typeorm';
-import { ICategory } from '@umanager/core/src/interfaces/entities/ICategory';
+import { BaseEntity } from './BaseEntity';
+import { Column, OneToMany, Entity } from 'typeorm';
+import { ICategory } from '@k-disciplines/core/src/interfaces/entities/ICategory';
 
 @Entity()
 export class Category extends BaseEntity implements ICategory {
-  @Column({ nullable: false })
+  @Column({ name: 'name', type: 'varchar', length: 100, nullable: false })
   public name: string;
 
   @OneToMany(() => Discipline, (discipline) => discipline.category)
-  public disciplines: Discipline[];
+  public disciplines: Promise<Discipline[]>;
 
   constructor(
-    name: string,
+    name: string
   ) {
     super();
 

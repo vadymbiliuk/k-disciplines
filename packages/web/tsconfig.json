@@ -22,8 +22,7 @@
     "forceConsistentCasingInFileNames": true,
     "emitDecoratorMetadata": true,
     "jsx": "react",
-    "types": ["webpack"],
-    "baseUrl": "."
+    "types": ["webpack"]
   },
   "include": ["src", "config"],
   "exclude": ["node_modules"]

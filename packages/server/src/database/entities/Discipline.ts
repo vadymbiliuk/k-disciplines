@@ -1,40 +1,46 @@
-import { Student } from './Student';
 import { Faculty } from './Faculty';
 import { Category } from './Category';
 import { BaseEntity } from './BaseEntity';
-import { Entity, Column, ManyToMany, ManyToOne, JoinColumn } from 'typeorm';
-import { IDiscipline } from '@umanager/core/src/interfaces/entities/IDiscipline';
+import { IDiscipline } from '@k-disciplines/core/src/interfaces/entities/IDiscipline';
+import { Column, ManyToOne, JoinColumn, ManyToMany, JoinTable, Entity } from 'typeorm';
 
 @Entity()
 export class Discipline extends BaseEntity implements IDiscipline {
-  @Column({ nullable: false })
+  @Column({ name: 'name', type: 'varchar', length: 100, nullable: false })
   public name: string;
 
-  @Column({ nullable: false, name: 'amount_of_max_students'  })
-  public amountOfMaxStudents: number;
+  @Column({ name: 'max_amount_of_students', type: 'int2', nullable: false })
+  public maxAmountOfStudents: number;
+
+  @Column({ name: 'amount_of_possible_semesters', type: 'simple-array', nullable: false })
+  public possibleSemesters: number[];
 
   @ManyToOne(() => Category, (category) => category.disciplines)
   @JoinColumn({ name: 'category_id' })
-  public category: Category;
+  public category: Promise<Category>
 
-  @ManyToOne(() => Student, (student) => student.currentDiscipline)
-  @JoinColumn({ name: 'students_id' })
-  public students: Student[];
-
-  @ManyToMany(() => Faculty)
-  public faculties: Faculty[];
-
-  @Column({ nullable: false, name: 'is_non_relevant'  })
-  public isNonRelevant: boolean;
+  @ManyToMany(() => Faculty, (faculty) => faculty.disciplines)
+  @JoinTable({ 
+    name: 'faculty_disciplines', 
+    joinColumn: {
+      name: 'discipline_id', 
+    },
+    inverseJoinColumn: {
+      name: 'faculty_id', 
+    }, 
+  })
+  public faculties: Promise<Faculty[]>;
 
   constructor(
     name: string,
-    amountOfMaxStudents: number
+    maxAmountOfStudents: number,
+    possibleSemesters: number[]
   ) {
     super();
 
     this.name = name;
-    this.amountOfMaxStudents = amountOfMaxStudents;
-    this.isNonRelevant = false;
+    this.maxAmountOfStudents = maxAmountOfStudents,
+    this.possibleSemesters = possibleSemesters;
   }
 }
+

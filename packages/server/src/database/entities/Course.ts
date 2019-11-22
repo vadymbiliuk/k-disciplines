@@ -1,31 +1,25 @@
 import { Student } from './Student';
 import { BaseEntity } from './BaseEntity';
-import { ICourse } from '@umanager/core/src/interfaces/entities/ICourse';
-import { Entity, Column, AfterLoad, BeforeInsert, OneToMany, JoinColumn } from 'typeorm';
+import { Column, OneToMany, Entity } from 'typeorm';
+import { ICourse } from '@k-disciplines/core/src/interfaces/entities/ICourse';
 
 @Entity()
 export class Course extends BaseEntity implements ICourse {
-  @Column({ nullable: false })
+  @Column({ name: 'course', type: 'int2', nullable: false })
   public course: number;
 
-  @Column({ nullable: false })
+  @Column({ name: 'semester', type: 'int2', nullable: false })
   public semester: number;
+  
+  @OneToMany(() => Student, (students) => students.course)
+  public students: Promise<Student[]>;
 
-  @OneToMany(() => Student, (student) => student.course)
-  @JoinColumn({ name: 'students_id' })
-  public students: Student[];
-
-  @AfterLoad()
-  @BeforeInsert()
-  updateSemester() {
-    const today = new Date();
-    const currentMonth = today.getUTCMonth();
-    const halfOfStudyYear = currentMonth > 6 ? 1 : 2;
-
-    this.semester = this.course + halfOfStudyYear;
-  }
-
-  constructor() {
+  constructor(
+    course: number
+  ) {
     super();
+
+    this.course = course;
+    this.semester = 0;
   }
 }

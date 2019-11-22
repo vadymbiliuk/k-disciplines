@@ -1,5 +1,5 @@
 {
-  "name": "@umanager/server",
+  "name": "@k-disciplines/server",
   "version": "0.0.1",
   "description": "Server part of application",
   "scripts": {
@@ -11,20 +11,20 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vadymbiliuk/umanager.git"
+    "url": "git+https://github.com/vadymbiliuk/k-disciplines.git"
   },
   "author": "Vadym Biliuk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vadymbiliuk/umanager/issues"
+    "url": "https://github.com/vadymbiliuk/k-disciplines/issues"
   },
-  "homepage": "https://github.com/vadymbiliuk/umanager#readme",
+  "homepage": "https://github.com/vadymbiliuk/k-disciplines#readme",
   "devDendencies": {
     "typescript": "^3.6.4"
   },
   "dependencies": {
     "@koa/cors": "^3.0.0",
-    "@umanager/core": "0.0.1",
+    "@k-disciplines/core": "0.0.1",
     "bcrypt": "^3.0.6",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.10.0",

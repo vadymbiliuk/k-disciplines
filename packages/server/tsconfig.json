@@ -21,8 +21,7 @@
     "skipLibCheck": true,
     "typeRoots": ["../../node_modules/@types", "./node_modules/@types"],
     "forceConsistentCasingInFileNames": true,
-    "emitDecoratorMetadata": true,
-    "baseUrl": "."
+    "emitDecoratorMetadata": true
   },
   "include": ["src"],
   "exclude": ["node_modules"]

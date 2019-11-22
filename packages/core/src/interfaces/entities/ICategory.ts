@@ -3,5 +3,5 @@ import { IBaseEntity } from './IBaseEntity';
 
 export interface ICategory extends IBaseEntity {
   name: string;
-  disciplines: IDiscipline[];
+  disciplines: Promise<IDiscipline[]>;
 }

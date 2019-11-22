@@ -1,38 +1,31 @@
 import { Role } from './Role';
 import { BaseEntity } from './BaseEntity';
-import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
-import { IUser } from '@umanager/core/src/interfaces/entities/IUser';
+import { Column, ManyToOne, JoinColumn, Entity } from 'typeorm';
+import { IUser } from '@k-disciplines/core/src/interfaces/entities/IUser';
 
 @Entity()
 export class User extends BaseEntity implements IUser {
-  @Column({ nullable: false })
+  @Column({ name: 'email', type: 'varchar', length: 100, nullable: false })
   public email: string;
 
-  @Column({ nullable: false, name: 'password_hash' })
+  @Column({ name: 'password_hash', type: 'varchar', length: 100, nullable: false })
   public passwordHash: string;
 
-  @Column({ nullable: false, name: 'first_name' })
+  @Column({ name: 'first_name', type: 'varchar', length: 50, nullable: false })
   public firstName: string;
 
-  @Column({ nullable: false, name: 'last_name'  })
+  @Column({ name: 'last_name', type: 'varchar', length: 50, nullable: false })
   public lastName: string;
-
-  @Column({ nullable: false, name: 'is_banned'  })
-  public isBanned: boolean;
-
-  @Column({ nullable: false, name: 'is_email_confirmed'  })
-  public isEmailConfirmed: boolean;
 
   @ManyToOne(() => Role, (role) => role.users)
   @JoinColumn({ name: 'role_id' })
-  public role: Role;
+  public role: Promise<Role>;
 
   constructor(
     email: string,
     passwordHash: string,
     firstName: string,
     lastName: string,
-    role: Role
   ) {
     super();
 
@@ -40,8 +33,5 @@ export class User extends BaseEntity implements IUser {
     this.passwordHash = passwordHash;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.isBanned = false;
-    this.isEmailConfirmed = false;
-    this.role = role;
   }
 }

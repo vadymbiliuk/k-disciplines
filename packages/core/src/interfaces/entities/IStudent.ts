@@ -1,11 +1,8 @@
-import { IUser } from './IUser';
 import { ICourse } from './ICourse';
 import { IFaculty } from './IFaculty';
-import { IDiscipline } from './IDiscipline';
+import { IBaseEntity } from './IBaseEntity';
 
-export interface IStudent extends IUser {
-  course: ICourse;
-  faculty: IFaculty;
-  currentDiscipline: IDiscipline;
-  graduatedDisciplines: IDiscipline[];
+export interface IStudent extends IBaseEntity {
+  course: Promise<ICourse>;
+  faculty: Promise<IFaculty>;
 }

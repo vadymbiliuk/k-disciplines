@@ -1,8 +1,12 @@
+import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   entry: './src/index.tsx',
-  
+  output: {
+    path: path.resolve(__dirname, '..', '..', '..', 'build/client'),
+    filename: '[name].[hash].js',
+  },
   module: {
     rules: [
       {
@@ -45,6 +49,7 @@ export default {
       template: require('html-webpack-template'),
       inject: false,
       appMountId: 'root',
+      title: 'Discipline picker',
     }),
   ],
   optimization: {

@@ -1,4 +1,4 @@
-import { IBaseEntity } from '@umanager/core/src/interfaces/entities/IBaseEntity';
+import { IBaseEntity } from '@k-disciplines/core/src/interfaces/entities/IBaseEntity';
 import { PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 export class BaseEntity implements IBaseEntity {

@@ -1,5 +1,5 @@
 {
-  "name": "@umanager/core",
+  "name": "@k-disciplines/core",
   "version": "0.0.1",
   "description": "Core part of application",
   "scripts": {
@@ -9,14 +9,14 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vadymbiliuk/umanager.git"
+    "url": "git+https://github.com/vadymbiliuk/k-disciplines.git"
   },
   "author": "Vadym Biliuk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vadymbiliuk/umanager/issues"
+    "url": "https://github.com/vadymbiliuk/k-disciplines/issues"
   },
-  "homepage": "https://github.com/vadymbiliuk/umanager#readme",
+  "homepage": "https://github.com/vadymbiliuk/k-disciplines#readme",
   "devDependencies": {
     "@types/yup": "^0.26.24",
     "typescript": "^3.6.4"

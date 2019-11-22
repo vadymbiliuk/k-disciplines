@@ -1,5 +1,5 @@
-import { Faculty } from 'src/database/entities/Faculty';
-import { findUserByEmail } from 'src/database/repositories/user';
+import { Faculty } from '../../database/entities/Faculty';
+import { findUserByEmail } from '../../database/repositories/user';
 
 export const signInManager = async(email: string) => {
   const user = await findUserByEmail(email);

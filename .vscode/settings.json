@@ -1,11 +1,11 @@
 {
   "cSpell.words": [
     "typeorm",
-    "umanager"
+    "k-disciplines"
   ],
   "sqltools.connections": [
     {
-      "database": "umanager",
+      "database": "k-disciplines",
       "dialect": "PostgreSQL",
       "name": "Work",
       "password": "12345",
